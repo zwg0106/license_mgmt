@@ -1,0 +1,49 @@
+{%  extends 'base.html' %}
+
+{% block title %}detail-{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/detail.css') }}">
+{% endblock %}
+
+{% block main %}
+    <p class="license-info">{{ client.filename }} Info Detail:</p>
+    <ul>
+        <li>Owner: {{ client.server.owner }}</li>
+        <li>Product: {{ client.server.product }}</li>
+        <li>Customer Name: {{ client.server.customer_name }}</li>
+        <li>Card Type: {{ client.cardtype }}</li>
+        <li>SN: {{ client.sn }}</li>
+        <li>MAC Address: {{ client.mac_addr }}</li>
+        <li>File Name: {{ client.filename }}</li>
+        <li>File Size: {{ client.filesize }}</li>
+        <li>Issued Time: {{ client.issued_time }}</li>
+        <li>Expired Time: {{ client.expired_time }}</li>
+        <li>Status: {{ client.status }}</li>
+    </ul>
+    <hr>
+    <div class="detail_group">
+        <p class="license-download-link">Download Link: {{ client.filename }} </p>
+        <tr >
+            <td>
+                <img class="" src="{{ url_for('static', filename='images/icon_file.gif') }}" alt="">
+                <a href="{{ url_for('license_download_byname', filename=client.filename) }}">{{ client.filename }}</a>
+                <span class="filesize">{{ client.filesize }} bytes</span>
+                <span class="create-time">{{ client.issued_time }}</span>
+            </td>
+        </tr>
+    </div>
+    <hr>
+    <div class="detail_group">
+        <p class="license-qr"> QRCode: {{ client.qrfile }} </p>
+        <tr>
+            <td>
+                <img src="{{ url_for('static', filename='images/icon_file.gif') }}" alt="">
+                <a href="{{ url_for('license_download_byname', filename=client.qrfile) }}">{{ client.qrfile }}</a>
+            </td>
+        </tr>
+        <br>
+        <img src="{{ url_for('static', filename='qrdir/' + client.qrfile) }}" alt="" class="qr-avatar">
+    </div>
+
+{% endblock %}

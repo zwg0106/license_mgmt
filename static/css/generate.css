@@ -1,0 +1,17 @@
+.main{
+    background: #fff;
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.main table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.div-generate {
+    margin-right: 80px;
+    text-align: right;
+}

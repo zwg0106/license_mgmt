@@ -1,0 +1,16 @@
+.logo{
+    width: 100px;
+    height: 40px;
+}
+
+.navbar-brand {
+    padding-top: 5px;
+}
+
+.navbar-generate {
+    padding-top: 5px;
+}
+
+body{
+    background: #f3f3f3;
+}

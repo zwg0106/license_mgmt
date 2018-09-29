@@ -1,0 +1,31 @@
+.license-info {
+    text-align: left;
+    margin-top: 20px;
+    font-size: x-large;
+    margin-left: 20px;
+}
+
+.detail_group {
+    margin-left: 20px;
+}
+
+.license-download-link {
+    font-size: x-large;
+}
+
+.filesize {
+    margin: 20px;
+}
+
+.create-time {
+    margin: 5px;
+}
+
+.license-qr {
+    font-size: x-large;
+}
+
+.qr-avatar{
+    width: 350px;
+    height: 350px;
+}

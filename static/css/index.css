@@ -1,0 +1,15 @@
+.main{
+    background: #fff;
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.table td {
+    text-align: center;
+}
+
+.table th {
+    text-align: center;
+}

@@ -1,0 +1,43 @@
+{%  extends 'base.html' %}
+
+{% block title %}home page{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+<div class="main">
+    {% block main %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">card type</th>
+                    <th scope="col">SN</th>
+                    <th scope="col">MAC</th>
+                    <th scope="col">issued time</th>
+                    <th scope="col">expired time</th>
+                    <th scope="col">status</th>
+                    <th scope="col">license file link</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for client in clients %}
+                <tr>
+                    <td>{{ client.id }}</td>
+                    <td>{{ client.cardtype }}</td>
+                    <td>{{ client.sn }}</td>
+                    <td>{{ client.mac_addr }}</td>
+                    <td>{{ client.issued_time }}</td>
+                    <td>{{ client.expired_time }}</td>
+                    <td>{{ client.status }}</td>
+                    <td><a href="{{ url_for('detail', client_id=client.id) }}">
+                        <img src="{{ url_for('static', filename='images/icon_file.gif') }}" alt="">
+                    </a></td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    {% endblock %}
+</div>

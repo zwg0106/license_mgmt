@@ -1,0 +1,76 @@
+{%  extends 'base.html' %}
+
+{% block title %}detail-{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/generate.css') }}">
+{% endblock %}
+
+{#<div class="main">#}
+    {% block main %}
+        <form action="{{ url_for('generate') }}" method="POST">
+        <table id="CardTable" border="1" align="center">
+            <thead>
+                <tr>
+                    <td> id </td>
+                    <td>Card Type</td>
+                    <td>Serial Number</td>
+                    <td>MAC Address</td>
+                    <td>Delete?</td>
+                    <td>Add Card?</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td name="id">1</td>
+                    <td><input type="text" size="25" id="card" name="card"></td>
+                    <td><input type="text" size="25" id="sn" name="sn"></td>
+                    <td><input type="text" size="25" id="mac" name="mac"></td>
+                    <td><input type="button" id="delButton" value="Delete" onclick="deleteRow(this)"/></td>
+                    <td><input type="button" id="addMoreButton" value="Add More" onclick="insRow()"/></td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <div class="div-generate">
+            <button class="btn btn-primary" onclick="">Generate</button>
+        </div>
+
+        <script type="text/javascript">
+        var table = document.getElementById('CardTable'),
+            tbody = table.getElementsByTagName('tbody')[0],
+            clone = tbody.rows[0].cloneNode(true);
+
+        function deleteRow(el) {
+            var i = el.parentNode.parentNode.rowIndex;
+            table.deleteRow(i);
+            while (table.rows[i]) {
+                updateRow(table.rows[i], i, false);
+                i++;
+            }
+        }
+
+        function insRow() {
+            var new_row = updateRow(clone.cloneNode(true), ++tbody.rows.length, true);
+            tbody.appendChild(new_row);
+        }
+
+        function updateRow(row, i, reset) {
+            row.cells[0].innerHTML = i;
+
+            var inp1 = row.cells[1].getElementsByTagName('input')[0];
+            var inp2 = row.cells[2].getElementsByTagName('input')[0];
+            var inp3 = row.cells[3].getElementsByTagName('input')[0];
+            inp1.id = 'card' + 'i';
+            inp2.id = 'sn' + 'i';
+            inp3.id = 'mac' + 'i';
+
+            if (reset) {
+                inp1.value = inp2.value = '';
+            }
+            return row;
+        }
+    </script>
+        </form>
+    {% endblock %}
+{#</div>#}
