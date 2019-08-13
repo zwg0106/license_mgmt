@@ -120,7 +120,7 @@ def generate():
         LOGGER.debug(licClientlist)
 
         #check card type, SN and MAC address
-        E7_CARD_LIST = ['NGPON2X4', 'GPON8R2', '10GE-12', 'GE-24']
+        E7_CARD_LIST = ['NG2', 'GP8', 'GE-4', 'GE-2']
         reSN = re.compile(r'\d{12}')
         reMAC = re.compile(r'^([0-9a-fA-F]{2}[:]){5}([0-9a-fA-F]{2})')
         for el in licClientlist:

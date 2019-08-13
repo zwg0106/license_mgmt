@@ -14,4 +14,4 @@ HOWTO:
 6. python3 license_mgmt.py
 
 test:
-python3 test/license_client.py -s 211803601049 -m cc:be:59:9d:44:dc -c 10GE-12
+python3 test/license_client.py -s 211803601049 -m cc:be:59:9d:44:dc -c GE-4
